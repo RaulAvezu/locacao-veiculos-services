@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<title>Locação de Veiculos</title>
+</head>
+
+<body>
+
+	<br>
+	<br>
+	<br>
+
+	<br>
+	<div class="container">
+
+		<div class="col" th:each="veiculo : ${editarVeiculo}">
+
+			<form method="post">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputEmail4">Marca</label> <input type="text"
+							class="form-control" name="marca" th:value="${veiculo.marca}">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="inputPassword4">Nome</label> <input type="text"
+							class="form-control" name="nome" th:value="${veiculo.nome}">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputEmail4">Ano</label> <input type="text"
+							class="form-control" name="ano" th:value="${veiculo.ano}">
+					</div>
+					<div class="form-group col-md-6">
+						<label for="inputPassword4">Modelo</label> <input type="text"
+							class="form-control" name="modelo" th:value="${veiculo.modelo}">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputEmail4">Combustível</label> <select
+							class="form-control" name="combustivel" th:option="${veiculo.combustivel}">
+							<option>Gasolina</option>
+							<option>Etanol</option>
+							<option>Flex</option>
+							<option>GNV</option>
+						</select>
+					</div>
+					<div class="form-group col-md-6">
+						<label for="inputPassword4">Valor Diária</label> <input
+							type="text" class="form-control" name="valorDiaria"
+							th:value="${veiculo.valorDiaria}">
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="inputEmail4">Status</label>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="status"
+								id="exampleRadios1" th:value="${veiculo.status}" checked> <label
+								class="form-check-label" for="exampleRadios1"> Alugado </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" name="status"
+								id="exampleRadios2" th:value="${veiculo.status}"> <label
+								class="form-check-label" for="exampleRadios2"> Disponivel </label>
+						</div>
+					</div>
+
+				</div>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+				<a href="http://localhost:8080/locacao-veiculos-services/veiculos"><button
+						type="button" class="btn btn-primary">Voltar</button></a>
+			</form>
+
+		</div>
+
+	</div>
+	<!----------------------------------------------------------------------------------------------->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
